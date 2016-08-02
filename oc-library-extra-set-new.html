@@ -56,12 +56,12 @@ Element used for capturing a new local extra set
 
       _onCreateExtra: function(event) {
         this.loading = true;
-        this.$.extrasApi.createExtra(this.organisationId,
+        this.$.extrasApi.createExtra(
                 {
                   name: event.detail.name,
                   price: event.detail.price,
                   description: event.detail.description,
-                  setId: this._optionSetId})
+                  setId: this._extraSetId})
                 .then(function() {this._refreshExtras()}.bind(this))
                 .catch(function() {
                   this.fire('extras-error', 'Could not create extra');
